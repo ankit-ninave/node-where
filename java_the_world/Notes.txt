@@ -1,0 +1,638 @@
+// Java script is dynamic type language(run time type we change ex:String,Boolean,Number)             //02
+// static type(c) other language like c
+// varible is like container which is used to store values
+// Java script is case sesative (ankit,Ankit) both are differnt variables
+
+// example
+// let x ='9' (type string)
+// x = 9      (type number) 
+//let 8harry = 9 //SyntaxError: Unexpected strict mode reserved word (Cannot define with number)
+//let var = 12 //SyntaxError: Unexpected strict mode reserved word (Reserved key word is used)
+
+// console.log(x)
+// console.log(typeof(x))
+
+output
+// 9
+// number
+
+// --------------------------------------------------------------------------------------- 03
+
+//let,var,const
+//previously (mostly in old code) before Es6 code we used var keyword(before ecma script)
+//var is globally scoped variable and const and let are blocked scoped
+//const we used to declare const in js
+//let is block scope variable
+
+
+//var can be  redeclre 
+//var can be update with its type also
+//cannot throw error if decalre mutiple time
+//var example
+/*
+var  x = 'box';    //out side block
+{
+   var x = 'table' //inside the block
+   console.log(x)
+}
+console.log(x)
+
+output 
+table   //it overrides previous values     
+table   //it overrides previous values
+*/
+
+//let cannot be redeclre 
+//let can be reassign 
+//let example
+/*
+ let  x = 'MH31';    //out side block
+ {
+    let x = 'UP50' //inside block(block scope)
+    console.log(x)
+ }
+ console.log(x)
+
+ //output
+ UP50
+ MH31
+*/
+
+
+//const can not be redeclare and reassign
+// example 
+/*
+const x = 9
+
+{
+    const x  = 7
+    console.log(x)
+}
+
+console.log(x)
+
+Output //note here initialise and run immeditely
+7
+9
+*/
+
+// example 2
+// const x = 9
+// const x = 9
+
+// console.log(x)
+
+// ERROR : SyntaxError: Identifier 'x' has already been declared
+
+
+// example 3
+// const x = 9
+//  x = 70
+
+// console.log(x)
+
+// console.log(x)
+// ERROR: typeError: Assignment to constant variable.
+
+// example 4
+// const x; //SyntaxError: Missing initializer in const declaration
+
+// SUMMERY
+// ✅ Best Practices
+// ✅ Use const by default.
+// ✅ Use let when the value needs to change.
+// ❌ Avoid var unless needed for legacy code.
+// ✅ Always initialize const during declaration.
+// ✅ Keep in mind JavaScript is case-sensitive and block-scoped via let and const.
+
+
+Additional(interview)
+1.Hoisting
+In the context of JavaScript, hoisting means that declarations (of variables and functions) are moved to the top of their scope during the compilation phase, before the code is executed. This allows you to use these declarations before they are declared in your code. 
+In simpler terms: JavaScript lets you use variables and functions before you define them, because JavaScript "moves" the declarations to the top of the scope. 
+
+Example:
+JavaScript
+console.log(myVar); // Output: undefined (because myVar is declared but not assigned a value yet)
+var myVar = "Hello";
+console.log(myVar); // Output: Hello
+
+Example Practice 1:
+console.warn(p);        //ReferenceError: Cannot access 'p' before initialization
+let p = 99;
+console.warn(p)
+p = 9
+
+Example Practice 2 :
+console.warn(p);       //undefined                                                                                                                                                               
+var p = 99;
+console.warn(p)        //99
+p = 9
+// -------------------------------------------------------------------------------------------------- 04
+//Used to defined type of data when we store data - 4
+Primitive type
+let n = 9;                        //n number 
+let n = null;                     //n null
+let s = "abc";                    //s string
+let s = Symbol("foo");            //s symbol
+let b = true;                     //b boolean
+let b = BigInt(9007199254740991); //b bignit
+let u = undefined;                //u undefined 
+
+//Non Primitive data type objects - key value pair
+const item = {
+'name': 'ankit',
+'age': 27,
+'status': true
+}  
+n['name'] = '5'
+n.name = '5'
+//item reference values cannot be changed
+(reserved value in memory)
+//key values can be add or change
+-->
+
+<!-- //expressions and conditions -5
+let  a = 5; b = 9;  
+console.warn(a+b)
+console.warn(a-b)
+console.warn(a*b)
+console.warn(a/b) -->
+
+
+
+let  a = 10; b = 2;  
+/* console.warn('a+b= ',a+b)
+console.warn(a-b)
+console.warn(a*b)
+console.warn(a/b)
+console.warn(a**b);//     10*10
+console.warn(a%b); 
+console.warn('a++',a++);  //previous value 10   
+console.warn('a',a);			//then increment value 11   
+console.warn('++b',++b); 	//at a time increment 3
+console.warn('b',b);      //already increment 3 
+console.log('a--',a--)    // 10
+console.log(a)            //9
+console.log('--a',--a)    //8 8
+console.log(a)            //8
+*/
+// -------------------------------------------------------------------------------------------------- 05
+operators
+// -------------------------------------------------------------------------------------------------- 05
+ conditions  
+let age = 8;
+ if(10 <= age && 20 >= age ){
+console.warn('the age lies between 10 and 20')
+ } else{
+console.warn('the age not lies between 10 and 20')
+ }
+ // -------------------------------------------------------------------------------------------------- 09
+ loops
+ Example 1 
+ let sum = 0;
+let n = 4;
+for(let i = 1; i <= n;i++){
+     sum += i   // 1 + 2 + 3 + 4 + 5
+}
+console.warn('first natural number total...' + sum )
+
+Example 2
+let a = 5;
+let sum = 1;
+for(let i = 1; i <= a; i++){
+     sum *= i;
+     1 * 1 = 1
+     1 * 2 = 2 
+     2 * 3 = 6
+     6 * 4 = 24
+     24 * 5 = 120
+     console.log('s',i)
+}
+console.log('sum factorial number upto 5-------->',sum)
+
+//for in loop
+let l_obejct = {
+     'ankit':100,
+     'ritika':70,
+     'avantika':90
+}
+
+for(let l_obj in l_obejct){
+ console.log('Name of student',l_obj + " and marks of the student",+l_obejct[l_obj])
+}
+for of loop
+
+ // -------------------------------------------------------------------------------------------------- 10
+while loop
+
+let i = 0;
+while( i <= 7){
+console.warn(i)
+i++;
+}
+
+excute only once
+do while
+
+ // -------------------------------------------------------------------------------------------------- 11
+
+a block of code is use to perform certain type task is know as function
+sepration of logic 
+repeat some code
+
+function lFN_print_number(para){
+     let i = para;
+     while( i <= 7){
+     console.warn(i)
+     i++;
+     }
+}
+
+lFN_print_number(0);
+
+function lFN_StudentMarks(l_marks){
+for(let i = l_marks; i < 10;i++){
+     console.log('i',i)
+}
+}
+
+lFN_StudentMarks(0);
+
+ // -------------------------------------------------------------------------------------------------- 12
+ Practice
+  // -------------------------------------------------------------------------------------------------- 13
+string - collection of character
+let a = "ankit"
+let b = "ninave"
+
+console.log(a.length)  //starts from  0 not from 1 but but when we print length it is o/p 5
+console.log(a[0]); //  when we access it start from 0
+
+
+let a = "ankit"
+let b = "ninave"
+
+console.log(a.length)  //starts from  1 not from 0 but 
+console.log(a[0]); //  when we access it start from 0
+
+
+template litrals use to insert string into our string statements using ``
+//backticks when can use double and single codes
+//this is the concept of string interpolation
+
+let sentence = `${a} is my name and ${b} is my sirname`;
+console.log(sentence)
+
+
+//escape sequence character
+let fruit = 'Bana\'na'  //escape single character
+console.log(fruit);    //add ticks   ---> Bana'na
+let mixfruit = `apple\nand\norange`
+console.log(mixfruit);    //next line
+let mixfruitjuice = `apple\ran`
+console.log(mixfruitjuice);    //carriage rutrn resesrch 
+
+  // -------------------------------------------------------------------------------------------------- 14
+  length //property
+  toUpperCase() // function
+  toLowerCase() // function
+
+
+let name = 'ankit'; 
+let sirname = 'ninave';  
+console.warn(name.length);  //  5 (including 0)
+
+//slice() method
+console.warn(name.slice(1,3)); // slice[like cake slice]  output is nk cut down that much string from one to 3 but no 3 it cutes only 2
+console.warn(name.slice(1));   //nkit    slice outsingle argument from 1 to upto the end
+
+//replace()
+console.warn(name.replace('an','man'))//mankit  // exact string is replace cant replace capital and small string
+
+//concat()
+console.warn(name.concat(" naam hai mera " , sirname, ' sirname hai mera '))
+
+//trim()
+let middlename = "      rajesh        " // with space and name
+console.warn(middlename)
+console.warn(middlename.trim());        // remove space using trim() method and print name
+
+// RATNA NAHI HAI GOOGLE IT SARI METHOD
+
+// strings are IMMUTABLE :  when all above functions runs it doesnot change or replace the orignal string as you
+//  can see
+EXAMPLE:
+console.warn(name)
+console.warn(sirname)
+
+
+example tp print string
+let a = 'ankit';
+for(let i = 0; i < a.length;i++){
+    console.warn(a[i])
+}           
+
+Practice some string method
+
+     // -------------------------------------------------------------------------------------------------- 15
+Practice some string method
+  // -------------------------------------------------------------------------------------------------- 16
+let ARRAYS = []
+  collection of some items like example string names, objects, boolean, strings
+  we can access it using index
+hold mpore than one value 
+let l_12_marks = [19, 29, 38, null, true];
+console.warn(l_12_marks);
+console.warn(l_12_marks[0]);
+console.warn(l_12_marks[1]);
+console.warn(l_12_marks[2]);
+console.warn(l_12_marks[3]);
+console.warn(l_12_marks[4]);
+console.warn(l_12_marks[5]); /// if index not present it shows undefined in console
+console.warn(`length of marks is`, l_12_marks.length); //lenght me elemrnts count hongey
+ 0 is entry strat nahi hoti
+
+l_12_marks[5] = 900 // Adding new values to the array 
+console.warn(l_12_marks)
+
+l_12_marks[3] = 'RX300' // CHANGING THE VALUE OF ARRAY
+console.warn(l_12_marks)
+
+//NOTE : "Arrays are mutable it can be changed strings are immutable it cannot be changes"
+
+console.warn(typeof(l_12_marks))
+
+EXAMPLE : PRINT ARRAY USNING LOOP
+let l_12_marks = [19, 29, 38, null, true];
+
+for(let a = 0; a < l_12_marks.length; a++){
+    console.warn(l_12_marks[a])
+}
+
+OUTPUT: 
+19
+29
+38
+null
+true
+
+// -------------------------------------------------------------------------------------------------- 17
+  ARRAY METHODS
+
+
+let l_12_marks = [19, 29, 38, null, true];
+// console.warn(typeof(l_12_marks));   ///object is type
+// console.warn(l_12_marks)          // [ 19, 29, 38, null, true ]
+// let a = l_12_marks.toString()   //toString();
+// console.warn(a)                 //19,29,38,,true
+let x =  l_12_marks.join('_')
+console.warn(x,`and type of is  ` ,typeof(x) );// o/p 19_29_38__true and type of is   string 
+
+
+// using array l_12_marks.pop pops out last element and returns new array
+//pop() METHOD  
+// let c= l_12_marks.pop()
+// console.warn(c)  //poped out LAST elemenet and returns last poped VALUE true
+// console.warn(l_12_marks) //return new array  19, 29, 38, null ]
+
+//PUSH() METHOD adds new element at the end of the array(modifies the array returns new array)
+// console.warn(l_12_marks.push(56))  //push value in LAST and returns length o/p 6
+// console.warn(l_12_marks) //return new array l_12_marks.pop() o/p [ 19, 29, 38, null, true, 56 ]
+
+//SHIFT() METHOD removes 1st element and returns it 
+//  console.warn(l_12_marks.shift()); //removes 1st Element i.e 19 o/p 19
+
+ 
+//UNSHIFT() METHOD add begiing of tha array and returns lenght of it 
+// console.warn(l_12_marks) //ORIG?NAL ARRAY
+// console.warn(l_12_marks.unshift(94)); //add begiing Element i.e 94 and return new array lenght o/p 6
+// console.warn(l_12_marks) // MODIFIED ORIG?NAL ARRAY
+
+// -------------------------------------------------------------------------------------------------- 18
+
+//delete operator in array
+ let l_ent_set = [15,45,63,47];
+//  console.log( l_ent_set) // ORIGNAL ARRAY [ 15, 45, 63, 47 ] and length is 4
+//  console.log(delete l_ent_set[0])  //delete is not method it is an operator 
+//  console.log( l_ent_set)  // CHECK HERE IT RETURN [ <1 empty item>, 45, 63, 47 ] and length is 4
+ 
+
+ //concat method in array
+// it doesnot chnage orignal array 
+// we can merge more than one array
+//  let l_ent_set2 = [15,45,63,47];
+//  let new_array = l_ent_set.concat(l_ent_set2)
+//  console.log(new_array)
+
+
+//sort() method
+//It modifies orignal array
+//Alphabetically sort it consider all as a string
+let l_num_set = [551,22,3,14,5,6,7,8,229];
+//console.warn(l_num_set.sort()) //Surprising ly it sort it as a string here (interview)
+
+
+// You think output is 
+// [
+//     3, 5, 6, 7, 8,
+//    14,  22, 229, 551
+//  ]
+
+//  but suprisingly 
+//   it is OUTPUT :
+//   [
+//     14, 22, 229, 3, 5,
+//    551,  6,   7, 8
+//  ]
+
+//IF we need to sort numerically we use comapre funtion as an argument (ascending order) (interview)
+// let compare_asc = (a,b) =>{ 
+// return a - b    // it will sort it in a ascending order 
+// }
+//l_num_set.sort(compare_asc)
+// console.warn(l_num_set.sort(compare_asc))
+//console.warn(l_num_set)  //it modifies the orignal array
+
+// let compare_des = (a,b) =>{ 
+//     return b - a    // it will sort it in a DESENDING order 
+//     }
+//     console.warn(l_num_set.sort(compare_des))
+
+
+//reverse() method
+//reverse out whatever the string is reverse()
+//console.warn(l_num_set.reverse()) 
+
+//splice() and slice()   (interview)
+let l_set = [551,22,3,14,5,6,7,8,229];
+//l_set.splice(2,2,225)   //[551, 22, 225,   5,6,  7,   8, 22]
+/*
+it takes 3 arguments
+where to start from which index where to add
+what to remove
+what is adding
+*/
+
+//example 
+// let l_returns_deleted_items = l_set.splice(2,7,225) 
+// console.warn(l_set) // [ 551, 22, 225 ]
+// console.warn(l_returns_deleted_items) // [3, 14,5,6,7,8, 229]
+
+//slice() method
+
+// let x = l_set.slice(3);  
+// console.warn(x) //returns new array o/p [ 14, 5, 6, 7, 8, 229 ]
+// console.warn(l_set) //doesnot change orignal array o/p [551,22,3,14,5,6,7,8,229]
+
+//example 2  2 arguments
+// let x1 = l_set.slice(3,6);  
+// console.warn(x1) //returns new array o/p [14]
+// console.warn(l_set) //doesnot change orignal array o/p [551,22,3,14,5,6,7,8,229] 
+
+// -------------------------------------------------------------------------------------------------- 19
+/*
+for (let o = 0; o < xmen.length; o++) {
+  console.log(xmen[o]); //string to single charater
+}
+Output :  
+w
+o
+l
+v
+e
+r
+i
+n  
+*/
+
+/*
+//foreach
+xmenteam.forEach((element)=>{return console.log(element)})
+xmenteam.forEach((element)=>{ console.log(element)})
+*/
+// Output:
+// wolverin
+// steelman
+// anagar
+// steelman
+
+
+//to get html collection in array format
+//Array.from
+// let l_string_to_array = Array.from(xmen);
+// console.log(l_string_to_array)
+
+// output:['w', 'o', 'l','v', 'e', 'r','i', 'n']
+
+
+//for..of
+//BETTER ALTERNATIVE OF FOR LOOP 
+// for(let l_hero_demand of xmenteam){
+//     console.log(l_hero_demand) 
+// }
+/*
+output:
+wolverin
+steelman
+anagar
+steelman
+*/
+
+//for..of prints keys of an array 
+// for(let l_hero_demand_item in xmenteam){
+//     console.log(l_hero_demand_item) 
+// }
+
+// output:
+// 0
+// 1
+// 2
+// 3
+
+// -------------------------------------------------------------------------------------------------- 20
+
+//map() filter() reduce()
+//higher order array methods are
+//time saving methods
+//modern JavaScript methods
+let teamcount = [11,12,13,14,15,16];
+
+//differnce between array.forEach and Map()
+//teamcount.forEach method is used to perform certain task on array element it doesnot modify orignal array
+// Purpose: Just performs a task (like logging or changing something externally).
+// Returns: Always undefined.
+// Modifies original array? ❌ No.
+// Use case: When you want to do something side-effect-based like logging or updating the UI.
+
+// teamcount.forEach((l_values)=>{return console.warn(l_values*2)})
+// console.warn(teamcount)
+
+/*
+output:
+22
+24
+26
+28
+30
+32
+[ 11, 12, 13, 14, 15, 16 ]
+*/
+
+//teamcount.map method is also used to perform certain task on array element it doesnot modify orignal array also
+//it return new array
+/*
+Purpose: Transforms each element and returns a new array.
+Returns: New array with modified values.
+Modifies original array? ❌ No.
+Use case: When you want a new array based on some transformation.
+without return output is [ undefined, undefined, undefined, undefined, undefined, undefined ]
+// */
+// let l_newarray = teamcount.map((l_row)=>{ console.warn(l_row*2); return l_row*2})
+// console.warn(`New Array`,l_newarray)
+// console.warn(`Orignal Array`,teamcount)
+
+/*
+output:
+22
+24
+26
+28
+30
+32
+New Array [ 22, 24, 26, 28, 30, 32 ]
+Orignal Array [ 11, 12, 13, 14, 15, 16 ]
+*/
+
+
+//filter() : filters an array with values that passes a test creates a new array
+//this also not modifies our orignal Array and return new array
+let l_FilterValues = teamcount.filter((l_itemes)=>{return l_itemes <14})
+//console.log(l_FilterValues) //values less than 14
+//output:[ 11, 12, 13 ]
+
+
+//reduce() method takes two argument and it reduce the value by calculate 1 and 2 avlue and then result with 3rd value
+//and so on...
+let l_red_value = teamcount.reduce((l_elem1,l_elem2)=>{return l_elem1 + l_elem2})
+//console.warn(l_red_value)
+//output: 81  //returns single value
+
+
+//example by my 
+teamcount.forEach((l_elem,index,array)=>{
+return console.warn(`actual value`,l_elem, `index value`,index, `and orignal array`,array)
+})
+
+// -------------------------------------------------------------------------------------------------- 21
+//Practice set-5
+//practice set 1
+/*
+let l_numbers = []
+let l_get_value = 10;
+
+if(l_get_value !== undefined){
+    l_numbers.push(l_get_value)  
+}
+console.warn(l_numbers)
+*/

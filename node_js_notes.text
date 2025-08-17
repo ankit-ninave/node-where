@@ -1,0 +1,15 @@
+1.node js run on v8 
+2.run type env which runs on server like other backend language
+3.works on asych non blocking io model 
+4.runs like node index.js or node index (node and filename)
+node --version
+npm --version  //facilate to install packaages
+npm init
+nodemon index.js //run on every change in file to install use npm install -g nodemon (g-globally install)
+npm i express
+single thread can manange mutiple connection be of non blocking io model
+
+package-lock.json - dependancy of dependancy
+
+
+require,export,module

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="my-real-world-project">
+        <style>
+            * {
+                margin: 0 auto;
+            }
+        
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                width: 100%;
+                background-color: azure;
+                text-align: center;
+            }
+        
+            .container-one {
+                width: 50%;
+                height: 250px;
+                background-color: rgb(155, 235, 17);
+            }
+        
+            .container-two {
+                width: 50%;
+                height: 250px;
+                background-color: rgb(180, 8, 60);
+            }
+        
+            @media only screen and (max-width: 745px) {
+                .container {
+                    width: 100%;
+                    flex-direction: column;
+                }
+        
+                .container-one,
+                .container-two {
+                    width: 100%;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <div class="container-one">one</div>
+            <div class="container-two">two</div>
+        </div>
+    </body>
+</html>
