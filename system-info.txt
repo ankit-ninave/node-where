@@ -1,0 +1,8 @@
+{
+  "l_DirectoryName": "D:\\ankit\\2025\\node-where\\java_the_world",
+  "l_PathBaseName": "readmi.txt",
+  "l_Extension": ".txt"
+}{
+  "user": "ankit",
+  "id": "2025"
+}
