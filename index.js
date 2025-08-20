@@ -14,3 +14,13 @@
 //Task 3:
 // let l_systemLogGenerator = require('./tasks/systemLogGenerator.js');
 // l_systemLogGenerator();
+
+const events = require('events')
+const emitter = new events()
+
+
+emitter.on('ankit',()=>{
+console.warn('Hello Ankit!!1');
+})
+
+emitter.emit('ankit');
