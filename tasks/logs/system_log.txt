@@ -1,10 +1,24 @@
 
-=== Log Entry: 2025-08-20T10:38:33.494Z ===
+=== Log Entry: 2025-08-20T10:38:07.491Z ===
 System Info:
   Platform       : win32
   Architecture   : x64
   Total Memory   : 15.90 GB
-  Free Memory    : 2.99 GB
+  Free Memory    : 2.97 GB
+
+URL Info:
+  Full URL       : https://mysite.com/api/products?category=laptop&id=999
+  Category       : laptop
+  ID             : 999
+
+------------------------------
+
+=== Log Entry: 2025-08-20T10:38:17.117Z ===
+System Info:
+  Platform       : win32
+  Architecture   : x64
+  Total Memory   : 15.90 GB
+  Free Memory    : 3.00 GB
 
 URL Info:
   Full URL       : https://mysite.com/api/products?category=laptop&id=999
