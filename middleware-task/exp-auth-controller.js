@@ -3,7 +3,7 @@
 const crypto = require('crypto');
 const { verifyToken } = require('../authController');
 
-const tokens = new Set()
+const Tokens = new Map()
 
 let userdetails = [
   { username: "ankit", password: "1234" },
@@ -17,7 +17,13 @@ const LoginAuth = (req, res) => {
   for (const element of userdetails) {
     if (username === element.username && password === element.password) {
       const token = crypto.randomBytes(16).toString('hex');
-      tokens.add(token);
+      Tokens.set(token, username);
+      console.warn('Token setted',token);
+
+      setTimeout(() => {
+        Tokens.delete(token);
+        console.warn(`Token expired for user ${username}`);
+      }, 50000);
 
       return res.json({
         message: `Login successful for ${username}`,
@@ -28,8 +34,8 @@ const LoginAuth = (req, res) => {
 
   // if loop finishes with no match
   return res.status(401).json({ message: 'Invalid credentials' });
-  
-};
-const verifyTokens = (token) =>  tokens.has(token)
 
-module.exports = {LoginAuth,verifyTokens}
+};
+const verifyTokens = (token) => tokens.has(token)
+
+module.exports = { LoginAuth, verifyTokens,Tokens }

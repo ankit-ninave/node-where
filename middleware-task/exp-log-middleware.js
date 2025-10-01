@@ -1,3 +1,5 @@
+const { Tokens } = require('./exp-auth-controller')
+
 const loggerMiddleware = (req, resp, next) => {
     resp.on('finish', () => {
         const date = new Date();
@@ -10,16 +12,19 @@ const loggerMiddleware = (req, resp, next) => {
 }
 
 
-const AuthUserMiddleware = (req,resp,next) =>{
-    const token2 = req.headers;
+const AuthUserMiddleware = (req, resp, next) => {
     const token = req.headers['authorization'];
-    console.warn('token2    ====>',token2);
-    console.warn('token====>',token);
+    if (!token) return resp.status(403).json({ message: 'forbidden invalid token' })
+    //console.warn('token AuthUserMiddleware',token);
+    console.warn('comes from',Tokens);
+    const username = Tokens.get(token); // ✅ now this works with Map
+    console.warn('username',username);
+    req.username = username
 
-    if(!token) return resp.status(403).json({message:'forbidden invalid token'})
-
+    //console.warn('req.username',req.username);
     next();
 }
 
 
-module.exports = {loggerMiddleware,AuthUserMiddleware}
+
+module.exports = { loggerMiddleware, AuthUserMiddleware }
