@@ -32,4 +32,4 @@ const LoginAuth = (req, res) => {
 };
 const verifyTokens = (token) =>  tokens.has(token)
 
-module.exports = {LoginAuth}
+module.exports = {LoginAuth,verifyTokens}
