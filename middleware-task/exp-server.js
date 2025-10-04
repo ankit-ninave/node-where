@@ -8,8 +8,9 @@ app.use(express.json());
 app.use(loggerMiddleware);
 
 app.get('/', (req, resp) => {
-    resp.json({ message: 'Welcome home' });
+    resp.send(" <h1>Welcome home</h1>");
 })
+
 
 app.get('/dashboard', AuthUserMiddleware, (req, resp) => {
     //console.warn('req=====>',req);
@@ -29,4 +30,6 @@ app.get('/logout', AuthUserMiddleware, (req, res) => {
     }
     res.status(400).json({ message: 'Invalid token or already logged out' });
 });
-app.listen(6600);
+app.listen(6600,()=>{
+    
+});
