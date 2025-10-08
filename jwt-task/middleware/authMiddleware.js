@@ -1,11 +1,11 @@
 const jwt = require('jsonwebtoken');
-const SECRET_KEY = "your-secret-key";
+const SECRET_KEY = 'my_super_secret'; // Define it here
 
 const authMiddleware = (req,resp,next)=>{
 //console.warn('2nd authMiddleware');
 //console.warn('Auth Middleware Called......');
   const token = req.headers['authorization'];
-  if (!token) return res.status(403).json({ message: 'Token missing' });
+  if (!token) return resp.status(403).json({ message: 'Token missing' });
 
   try {
     const decoded = jwt.verify(token, SECRET_KEY);
