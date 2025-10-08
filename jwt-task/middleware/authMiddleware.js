@@ -1,9 +1,20 @@
-
+const jwt = require('jsonwebtoken');
+const SECRET_KEY = "your-secret-key";
 
 const authMiddleware = (req,resp,next)=>{
-console.warn('Auth Middleware Called......');
-const token = req.headers['authorization'];
-console.warn('token',token);
+//console.warn('2nd authMiddleware');
+//console.warn('Auth Middleware Called......');
+  const token = req.headers['authorization'];
+  if (!token) return res.status(403).json({ message: 'Token missing' });
+
+  try {
+    const decoded = jwt.verify(token, SECRET_KEY);
+    req.user = decoded;
+    next();
+  } catch (err) {
+    return res.status(401).json({ message: 'Invalid or expired token' });
+  }
+//console.warn('token',token);
 next();
 }
 

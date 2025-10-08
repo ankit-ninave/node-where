@@ -1,29 +1,18 @@
-const express = require('express')
-const app = express();
-const loggerMiddleware = require('../middleware/loggerMiddleware')
-const authMiddleware = require('../middleware/authMiddleware')
+const express = require('express');
+const router = express.Router();
+const authMiddleware = require('../middleware/authMiddleware');
+const authController = require('../controller/authController')
 
+// Public route
+router.get('/', (req, res) => {
+   res.send("<h6>Public Called and Worked.....</h6>");
+});
 
-app.use(loggerMiddleware)
+// Protected routes
+router.get('/dashboard', authMiddleware, authController.dashboard);
 
-app.get('/',(req,resp)=>{
-resp.send("<h6>Called and Worked.....</h6>")
-resp.end()
-})
+router.post('/login', authController.login);
 
-app.get('/dashboard',authMiddleware ,(req,resp)=>{
-   resp.json({message:'dashboard viewing'});
-   resp.end() 
-})
+router.get('/logout', authMiddleware, authController.logout);
 
-app.get('/login',authMiddleware,(req,resp)=>{
-   resp.json({message:'login sucessful'});
-   resp.end() 
-})
-
-app.get('/logout',authMiddleware,(req,resp)=>{
-   resp.json({message:'logout sucessful'});
-   resp.end() 
-})
-
-app.listen(6600)
+module.exports = router;
