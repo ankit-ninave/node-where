@@ -8,26 +8,16 @@ exports.dashboard = (req, res) => {
     res.json({ message: 'dashboard viewing' });
 }
 
-
 exports.login = (req, res) => {
-  const { username, password } = req.body;
-
-  console.warn('req.body:', req.body);
-
-  if (!username || !password) {
-    return res.status(400).json({ message: 'Username and password required' });
-  }
-
-  // Find user in the array
-  const user = userinfo.find(u => u.username === username && u.password === password);
-
-  if (user) {
-    const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
-    return res.json({ message: 'Login successful', token });
-  }
-
-  return res.status(401).json({ message: 'Invalid credentials' });
-};
+    console.warn('req.body---->',req.body);
+    console.warn('userinfo.username---->',userinfo.username);
+    const { username, password } = req.body
+    if (userinfo.username === username && userinfo.password === password) {
+        const token = jwt.sign({ username }, SECRET_KEY, { expiresIn: '1h' });
+        res.json({ message: 'login successful', token });
+    }
+    res.status(401).json({ message: 'Invalid credentials' });
+}
 
 exports.logout = (req, res) => {
     res.json({ message: 'logout successful' });
