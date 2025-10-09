@@ -12,10 +12,9 @@ const authMiddleware = (req,resp,next)=>{
     req.user = decoded;
     next();
   } catch (err) {
-    return res.status(401).json({ message: 'Invalid or expired token' });
+    return resp.status(401).json({ message: 'Invalid or expired token' });
   }
 //console.warn('token',token);
-next();
 }
 
 
