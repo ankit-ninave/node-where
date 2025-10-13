@@ -1,0 +1,3 @@
+CREATE DATABASE dev;
+
+DROP DATABASE dev;
