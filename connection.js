@@ -1,22 +1,26 @@
-const { Pool } = require('pg')
+// db/connection.js
+const { Pool } = require('pg');
 
+// --- Create the connection pool (singleton)
 const pool = new Pool({
-  user: 'postgres',
-  host: 'localhost',
-  database: 'devtodo',
-  password: '@admin123',
-  port: 5433
-}) 
+  user:'postgres',
+  host:'localhost',
+  database:'devtodo',
+  password:'@admin123',
+  port:5433
+});
 
 
-// Function to test pool connection
-async function isPoolConnected() {
+
+// --- Test connection on startup (optional but standard)
+(async () => {
   try {
-    await pool.query('SELECT 1'); // simple test query
-    return true;
+    const res = await pool.query('SELECT NOW()');
+    console.log('PostgreSQL time:', res.rows[0].now);
   } catch (err) {
-    console.error('❌ Connection error', err.stack);
-    return false;
+    console.error('❌ Initial connection failed:', err.message);
   }
-}
-module.exports = { pool, isPoolConnected };
+})();
+
+// --- Export pool for reuse in the app
+module.exports = pool;
